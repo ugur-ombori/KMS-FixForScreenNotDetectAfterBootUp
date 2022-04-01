@@ -18,22 +18,22 @@ echo "System Architecture: $SYSTEM_ARCH"
 if [ "$SYSTEM_ARCH" = "amd64" ] ; then
     mount $AMD_BOOT /mnt
     if [ -f "$AMD_KMS_CONF_FILE" ] ; then
-        echo "/dev/sda1 mounted succesful!"
+        echo " + /dev/sda1 mounted succesful!"
 
         if grep -q "initrd.img" "$AMD_KMS_CONF_FILE" ; then
-            echo "KMS file verified succesful!"
+            echo " + KMS file verified succesful!"
             #TODO change with mv
             cp "$KMS_CONF" "$HOME_OMBORI/.old_gridos.conf-$DATE"
 
 
         else
-            echo "ERR! KMS file could NOT verified!!"
-            echo "Contact with Ombori Tech team!"
+            echo " - ERR! KMS file could NOT verified!!"
+            echo " - Contact with Ombori Tech team!"
             exit 1
         fi
     else
-        echo "ERR! /dev/sda1 CANT mount!"
-        echo "Contact with Ombori Tech team!"
+        echo " - ERR! /dev/sda1 CANT mount!"
+        echo " - Contact with Ombori Tech team!"
         exit 1
     fi
 
@@ -41,22 +41,22 @@ if [ "$SYSTEM_ARCH" = "amd64" ] ; then
 elif [ "$SYSTEM_ARCH" = "arm64" ] ; then
     mount $ARM_BOOT /mnt
     if [ -f "$ARM_KMS_CONF_FILE" ] ; then
-        echo "/dev/mmcblk0p1 mounted succesful!"
+        echo " + /dev/mmcblk0p1 mounted succesful!"
 
         if grep -q "initrd.img" "$ARM_KMS_CONF_FILE" ; then
-            echo "KMS file verified succesful!"
+            echo " + KMS file verified succesful!"
             #TODO change with mv
             cp "$ARM_KMS_CONF_FILE" "$HOME_OMBORI/.old_config.txt-$DATE"
 
 
         else
-            echo "ERR! KMS file could NOT verified!!"
-            echo "Contact with Ombori Tech team!"
+            echo " - ERR! KMS file could NOT verified!!"
+            echo " - Contact with Ombori Tech team!"
             exit 1
         fi
     else
-        echo "ERR! /dev/mmcblk0p1 CAN'T mount!"
-        echo "Contact with Ombori Tech team!"
+        echo " - ERR! /dev/mmcblk0p1 CAN'T mount!"
+        echo " - Contact with Ombori Tech team!"
         exit 1
     fi
 fi
