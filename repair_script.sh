@@ -38,7 +38,7 @@ if [ $SYSTEM_ARCH == "amd64" ] then
         exit 1
     fi
 #ARM64 arch systems
-elif [ $SYSTEM_ARCH == "arm64" ] then
+elif [ $SYSTEM_ARCH == "arm64" ]; then
 
     mount /dev/mmcblk0p1 /mnt
     if [ -f "$ARM_KMS_CONF_FILE" ]; then
