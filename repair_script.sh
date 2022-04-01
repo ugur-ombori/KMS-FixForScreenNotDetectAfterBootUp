@@ -31,7 +31,7 @@ if [ "$SYSTEM_ARCH" = "amd64" ] ; then
             cp "$AMD_KMS_CONF_FILE" "$HOME_OMBORI/.old_gridos.conf-$DATE"
 
             #Check the settings applied before
-            if grep -q "hdmi_force_hotplug=1\|hdmi_group=1\|hdmi_mode=16" "$AMD_KMS_CONF_FILE" ; then
+            if ! grep -q "hdmi_force_hotplug=1\|hdmi_group=1\|hdmi_mode=16" "$AMD_KMS_CONF_FILE" ; then
                 #ADD required KMS settings at the end of the KMS file
                 sed -i '$a hdmi_force_hotplug=1\nhdmi_group=1\nhdmi_mode=16' "$AMD_KMS_CONF_FILE" && op_result=1
             else
@@ -65,7 +65,7 @@ elif [ "$SYSTEM_ARCH" = "arm64" ] ; then
             #ADD required KMS settings at the end of the KMS file
 
             #Check the settings applied before
-            if grep -q "hdmi_force_hotplug=1\|hdmi_group=1\|hdmi_mode=16" "$ARM_KMS_CONF_FILE" ; then
+            if ! grep -q "hdmi_force_hotplug=1\|hdmi_group=1\|hdmi_mode=16" "$ARM_KMS_CONF_FILE" ; then
                 #ADD required KMS settings at the end of the KMS file
                 sed -i '$a hdmi_force_hotplug=1\nhdmi_group=1\nhdmi_mode=16' "$ARM_KMS_CONF_FILE" && op_result=1
             else
