@@ -60,6 +60,4 @@ elif [ "$SYSTEM_ARCH" == "arm64" ] then
         echo "Contact with Ombori Tech team!"
         exit 1
     fi
-
-else
 fi
