@@ -15,7 +15,7 @@ SYSTEM_ARCH=`dpkg --print-architecture`
 echo "System Architecture: $SYSTEM_ARCH"
 
 #AMD64 arch systems
-if [ $SYSTEM_ARCH == "amd64" ] then
+if [ "$SYSTEM_ARCH" == "amd64" ] then
 
     mount /dev/sda1 /mnt
     if [ -f "$AMD_KMS_CONF_FILE" ]; then
@@ -38,7 +38,7 @@ if [ $SYSTEM_ARCH == "amd64" ] then
         exit 1
     fi
 #ARM64 arch systems
-elif [ $SYSTEM_ARCH == "arm64" ]; then
+elif [ "$SYSTEM_ARCH" == "arm64" ] then
 
     mount /dev/mmcblk0p1 /mnt
     if [ -f "$ARM_KMS_CONF_FILE" ]; then
